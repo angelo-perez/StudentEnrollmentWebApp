@@ -4,6 +4,7 @@
 ## Technologies Used
 - ASP.NET Core MVC
 - .NET 8
+- C#
 - Microsoft SQL Server
 - HTML
 - CSS
