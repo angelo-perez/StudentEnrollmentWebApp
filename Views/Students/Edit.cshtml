@@ -104,8 +104,22 @@
             </div>
             <div class="form-group">
                 <label asp-for="Subjects" class="control-label"></label>
-                <input asp-for="Subjects" class="form-control" />
+                <div id="edit-inputContainer">
+                    @foreach (var subject in Model.Subjects.Split(','))
+                    {
+                        <input type="text" class="subject-input form-control mt-1" value="@subject" />
+                    }
+                </div>
+                <input id="edit-concatSubjects" type="hidden" asp-for="Subjects" />
                 <span asp-validation-for="Subjects" class="text-danger"></span>
+                <div id="subject-buttons">
+                    <button type="button" id="edit-addInputBtn" class="btn btn-success mt-2">
+                        <i class="bi bi-plus-square"></i>
+                    </button>
+                    <button type="button" id="edit-removeInputBtn" class="btn btn-danger mt-2 ">
+                        <i class="bi bi-dash-square"></i>
+                    </button>
+                </div>
             </div>
             <div class="form-group mt-3">
                 <input type="submit" value="Save" class="btn btn-primary" /> 
@@ -117,4 +131,25 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script>
+        $(document).ready(function () {
+            $("#edit-addInputBtn").click(function () {
+                $("#edit-inputContainer").append('<input type="text" class="subject-input form-control mt-1" />');
+            });
+
+            $("#edit-removeInputBtn").click(function () {
+                $("#inputContainer input:last").remove();
+            });
+
+            $("form").submit(function () {
+                // On form submission, concatenate all subjects into a single string
+                var subjects = $(".subject-input").map(function () {
+                    return $(this).val();
+                }).get().join(",");
+
+                // Set the concatenated subjects to the hidden input field
+                $("#edit-concatSubjects").val(subjects);
+            });
+        });
+    </script>
 }

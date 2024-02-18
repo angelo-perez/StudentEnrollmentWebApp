@@ -54,7 +54,7 @@ namespace StudentEnrollmentWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("StudentId,FullName,Email,PhoneNumber,Gender,DateOfBirth,Address,Course,Semester,YearLevel,Section,Subjects")] Student student)
+        public async Task<IActionResult> Create([Bind("Id,FullName,Email,PhoneNumber,Gender,DateOfBirth,Address,Course,Semester,YearLevel,Section,Subjects")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace StudentEnrollmentWebApp.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("StudentId,FullName,Email,PhoneNumber,Gender,DateOfBirth,Address,Course,Semester,YearLevel,Section,Subjects")] Student student)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,FullName,Email,PhoneNumber,Gender,DateOfBirth,Address,Course,Semester,YearLevel,Section,Subjects")] Student student)
         {
             if (id != student.Id)
             {
