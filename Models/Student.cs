@@ -8,7 +8,10 @@ namespace StudentEnrollmentWebApp.Models
         public int StudentId { get; set; }
         [Required]
         public string FullName { get; set; }
-        public string Email { get; set; } = string.Empty;
+        [RegularExpression(@"^[^\.\s][\w\-]+(\.[\w\-]+)*@([\w-]+\.)+[\w-]{2,}$", ErrorMessage = "Not a valid email address")]
+        public string Email { get; set; }
+        [RegularExpression(@"^(?:\+639|\b09|\b9)\d{9}$", ErrorMessage = "Not a valid PH phone number")]
+        public string PhoneNumber { get; set; }
         public string Gender { get; set; } = string.Empty;
         public DateOnly DateOfBirth { get; set; }
         public string Address { get; set; } = string.Empty;
@@ -20,7 +23,8 @@ namespace StudentEnrollmentWebApp.Models
         public string YearLevel { get; set; }
         [Required]
         public string Section { get; set; }
-        // <subjects>
-        public DateTime DateModified { get; set; }
+        [Required]
+        public string Subjects {  get; set; }
+        public DateTime DateModified { get; set; } = DateTime.Now;
     }
 }

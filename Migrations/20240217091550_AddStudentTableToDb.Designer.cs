@@ -12,7 +12,7 @@ using StudentEnrollmentWebApp.Data;
 namespace StudentEnrollmentWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240216114020_AddStudentTableToDb")]
+    [Migration("20240217091550_AddStudentTableToDb")]
     partial class AddStudentTableToDb
     {
         /// <inheritdoc />
@@ -59,11 +59,19 @@ namespace StudentEnrollmentWebApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Section")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Semester")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Subjects")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

@@ -19,6 +19,7 @@ namespace StudentEnrollmentWebApp.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     FullName = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PhoneNumber = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Gender = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateOfBirth = table.Column<DateOnly>(type: "date", nullable: false),
                     Address = table.Column<string>(type: "nvarchar(max)", nullable: false),
@@ -26,6 +27,7 @@ namespace StudentEnrollmentWebApp.Migrations
                     Semester = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     YearLevel = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Section = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Subjects = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     DateModified = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
                 constraints: table =>

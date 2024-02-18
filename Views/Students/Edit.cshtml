@@ -20,12 +20,24 @@
             </div>
             <div class="form-group">
                 <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" />
+                <input asp-for="Email" class="form-control" placeholder="example@example.com" />
                 <span asp-validation-for="Email" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Gender" class="control-label"></label>
-                <input asp-for="Gender" class="form-control" />
+                <label asp-for="PhoneNumber" class="control-label">PhoneNumber (PH)</label>
+                <input asp-for="PhoneNumber" class="form-control" type="tel" placeholder="+639xxxxxxxxx/09xxxxxxxxx/9xxxxxxxxx" />
+                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Gender</label><br />
+                <div class="form-check">
+                    @Html.RadioButtonFor(model => model.Gender, "Male", new { @checked = "true", @class = "form-check-input", @id = "edit-male"})
+                    <label for="edit-male" class="control-label">Male</label><br />
+                    @Html.RadioButtonFor(model => model.Gender, "Female", new { @checked = "true", @class = "form-check-input", @id = "edit-female"})
+                    <label for="edit-female" class="control-label">Female</label><br />
+                    @Html.RadioButtonFor(model => model.Gender, "Other", new { @checked = "true", @class = "form-check-input", @id = "edit-other"})
+                    <label for="edit-other" class="control-label">Other</label>
+                </div>
                 <span asp-validation-for="Gender" class="text-danger"></span>
             </div>
             <div class="form-group">
@@ -43,15 +55,47 @@
                 <input asp-for="Course" class="form-control" />
                 <span asp-validation-for="Course" class="text-danger"></span>
             </div>
-            <div class="form-group">
+@*             <div class="form-group">
                 <label asp-for="Semester" class="control-label"></label>
                 <input asp-for="Semester" class="form-control" />
                 <span asp-validation-for="Semester" class="text-danger"></span>
-            </div>
+            </div> *@
             <div class="form-group">
+                <label asp-for="Semester" class="control-label"></label>
+                <select asp-for="Semester" class="form-select">
+                    @{
+                        string firstSem = (Model.Semester == "1st Semester") ? "selected" : "";
+                        string secondSem = (Model.Semester == "2nd Semester") ? "selected" : "";
+                        string summerSem = (Model.Semester == "Summer Semester") ? "selected" : "";
+                    }
+                    <!option value="1st Semester" @firstSem>1st Semester</!option>
+                    <!option value="2nd Semester" @secondSem>2nd Semester</!option>
+                    <!option value="Summer Semester" @summerSem>Summer Semester</!option>
+                </select>
+                <span asp-validation-for="Semester" class="text-danger"></span>
+            </div>
+@*             <div class="form-group">
                 <label asp-for="YearLevel" class="control-label"></label>
                 <input asp-for="YearLevel" class="form-control" />
                 <span asp-validation-for="YearLevel" class="text-danger"></span>
+            </div> *@
+            <div class="form-group">
+                <label asp-for="YearLevel" class="control-label"></label>
+                <select asp-for="YearLevel" class="form-select">
+                    @{
+                        string firstYear = (Model.YearLevel == "1st Year") ? "selected" : "";
+                        string secondYear = (Model.YearLevel == "2nd Year") ? "selected" : "";
+                        string thirdYear = (Model.YearLevel == "3rd Year") ? "selected" : "";
+                        string fourthYear = (Model.YearLevel == "4th Year") ? "selected" : "";
+                        string fifthYear = (Model.YearLevel == "5th Year") ? "selected" : "";
+                    }
+                    <!option value="1st Year" @firstYear>1st Year</!option>
+                    <!option value="2nd Year" @secondYear>2nd Year</!option>
+                    <!option value="3rd Year" @thirdYear>3rd Year</!option>
+                    <!option value="4th Year" @fourthYear>4th Year</!option>
+                    <!option value="5th Year" @fifthYear>5th Year</!option>
+                </select>
+                <span asp-validation-for="Semester" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Section" class="control-label"></label>
@@ -59,9 +103,9 @@
                 <span asp-validation-for="Section" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="DateModified" class="control-label"></label>
-                <input asp-for="DateModified" class="form-control" />
-                <span asp-validation-for="DateModified" class="text-danger"></span>
+                <label asp-for="Subjects" class="control-label"></label>
+                <input asp-for="Subjects" class="form-control" />
+                <span asp-validation-for="Subjects" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
