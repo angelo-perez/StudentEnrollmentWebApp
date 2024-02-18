@@ -9,103 +9,115 @@
 <h4>Student</h4>
 <hr />
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="row">
-                
-            </div>
-            <div class="form-group">
-                <label asp-for="FullName" class="control-label">Full Name</label>
-                <input asp-for="FullName" class="form-control" />
-                <span asp-validation-for="FullName" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Email" class="control-label"></label>
-                <input asp-for="Email" class="form-control" placeholder="example@example.com"/>
-                <span asp-validation-for="Email" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="PhoneNumber" class="control-label">PhoneNumber (PH)</label>
-                <input asp-for="PhoneNumber" class="form-control" type="tel" placeholder="+639xxxxxxxxx/09xxxxxxxxx/9xxxxxxxxx" />
-                <span asp-validation-for="PhoneNumber" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label class="control-label">Gender</label><br />
-                <div class="form-check">
-                    <input id="male" class="form-check-input" asp-for="Gender" type="radio" value="Male" required/>
-                    <label for="male" class="control-label">Male</label><br />
-                    <input id="female" class="form-check-input" asp-for="Gender" type="radio" value="Female" />
-                    <label for="female" class="control-label">Female</label><br />
-                    <input id="other" class="form-check-input" asp-for="Gender" type="radio" value="Other" />
-                    <label for="other" class="control-label">Other</label>
+            <div>
+                <div class="form-group row">
+                    <div class="col-4">
+                        <label for="create-firstName" class="control-label">First Name:</label>
+                        <input id="create-firstName" class="create-name form-control" required/>
+                    </div>
+                    <div class="col-4">
+                        <label for="create-middleName" class="control-label">Middle Name:</label>
+                        <input id="create-middleName" class="create-name form-control" placeholder="(optional)" />
+                    </div>
+                    <div class="col-4">
+                        <label fpr="create-lastName" class="control-label">Last Name:</label>
+                        <input id="create-lastName" class="create-name form-control" required />
+                    </div>
+                    <input id="create-fullName" type="hidden" asp-for="FullName" />
+                    <span asp-validation-for="FullName" class="text-danger"></span>
                 </div>
-                <span asp-validation-for="Gender" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="DateOfBirth" class="control-label">Date of Birth</label>
-                <input asp-for="DateOfBirth" class="form-control" type="date"/>
-                <span asp-validation-for="DateOfBirth" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Address" class="control-label"></label>
-                <input asp-for="Address" class="form-control" />
-                <span asp-validation-for="Address" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Course" class="control-label"></label>
-                <input asp-for="Course" class="form-control" />
-                <span asp-validation-for="Course" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Semester" class="control-label"></label>
-                <select asp-for="Semester" class="form-select">
-                    <option value="" selected disabled>Select Semester</option>
-                    <option value="1st Semester">1st Semester</option>
-                    <option value="2nd Semester">2nd Semester</option>
-                    <option value="Summer Semester">Summer Semester</option>
-                </select>
-                <span asp-validation-for="Semester" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="YearLevel" class="control-label"></label>
-                <select asp-for="YearLevel" class="form-select">
-                    <option value="" selected disabled>Select Year Level</option>
-                    <option value="1st Year">1st Year</option>
-                    <option value="2nd Year">2nd Year</option>
-                    <option value="3rd Year">3rd Year</option>
-                    <option value="4th Year">4th Year</option>
-                    <option value="5th Year">5th Year</option>
-                </select>
-                <span asp-validation-for="YearLevel" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Section" class="control-label"></label>
-                <input asp-for="Section" class="form-control" />
-                <span asp-validation-for="Section" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Subjects" class="control-label"></label>
-                <div id="inputContainer">
-                    <input type="text" class="subject-input form-control" />
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label">Email:</label>
+                    <input asp-for="Email" class="form-control" placeholder="example@example.com"/>
+                    <span asp-validation-for="Email" class="text-danger"></span>
                 </div>
-                <input type="hidden" asp-for="Subjects" id="concatSubjects" />
-                <span asp-validation-for="Subjects" class="text-danger"></span>
-                <div id="subject-buttons">
-                    <button type="button" id="addInputBtn" class="btn btn-success mt-2">
-                        <i class="bi bi-plus-square"></i>
-                    </button>
-                    <button type="button" id="removeInputBtn" class="btn btn-danger mt-2 ">
-                        <i class="bi bi-dash-square"></i>
-                    </button>
+                <div class="form-group">
+                    <label asp-for="PhoneNumber" class="control-label">Phone Number (PH):</label>
+                    <input asp-for="PhoneNumber" class="form-control" type="tel" placeholder="+639xxxxxxxxx/09xxxxxxxxx/9xxxxxxxxx" />
+                    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
                 </div>
-            </div>
-            <div class="form-group pt-3">
-                <input type="submit" value="Create" class="btn btn-primary" />
-                <a asp-action="Index" class="btn btn-outline-primary m-lg-1 m-md-1 m-sm-1">Back to List</a>
+                <div class="form-group">
+                    <label class="control-label">Gender:</label><br />
+                    <div class="form-check">
+                        <input id="male" class="form-check-input" asp-for="Gender" type="radio" value="Male" required/>
+                        <label for="male" class="control-label">Male</label><br />
+                        <input id="female" class="form-check-input" asp-for="Gender" type="radio" value="Female" />
+                        <label for="female" class="control-label">Female</label><br />
+                        <input id="other" class="form-check-input" asp-for="Gender" type="radio" value="Other" />
+                        <label for="other" class="control-label">Other</label>
+                    </div>
+                    <span asp-validation-for="Gender" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="DateOfBirth" class="control-label">Date of Birth:</label>
+                    <input asp-for="DateOfBirth" class="form-control" type="date"/>
+                    <span asp-validation-for="DateOfBirth" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Address" class="control-label">Address:</label>
+                    <input asp-for="Address" class="form-control" />
+                    <span asp-validation-for="Address" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Course" class="control-label">Course:</label>
+                    <input asp-for="Course" class="form-control" />
+                    <span asp-validation-for="Course" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Semester" class="control-label">Semester:</label>
+                    <select asp-for="Semester" class="form-select">
+                        <option value="" selected disabled>Select Semester</option>
+                        <option value="1st Semester">1st Semester</option>
+                        <option value="2nd Semester">2nd Semester</option>
+                        <option value="Summer Semester">Summer Semester</option>
+                    </select>
+                    <span asp-validation-for="Semester" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="YearLevel" class="control-label">Year Level:</label>
+                    <select asp-for="YearLevel" class="form-select">
+                        <option value="" selected disabled>Select Year Level</option>
+                        <option value="1st Year">1st Year</option>
+                        <option value="2nd Year">2nd Year</option>
+                        <option value="3rd Year">3rd Year</option>
+                        <option value="4th Year">4th Year</option>
+                        <option value="5th Year">5th Year</option>
+                    </select>
+                    <span asp-validation-for="YearLevel" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Section" class="control-label">Section: </label>
+                    <input asp-for="Section" class="form-control" />
+                    <span asp-validation-for="Section" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Subjects" class="control-label">Subject(s):</label>
+                    <div id="inputContainer">
+                        <input type="text" class="subject-input form-control" />
+                    </div>
+                    <input type="hidden" asp-for="Subjects" id="concatSubjects" />
+                    <span asp-validation-for="Subjects" class="text-danger"></span>
+                    <div id="subject-buttons" class="text-center">
+                        <button type="button" id="addInputBtn" class="btn btn-success mt-2">
+                            <i class="bi bi-plus-square"></i>
+                        </button>
+                        <button type="button" id="removeInputBtn" class="btn btn-danger mt-2 ">
+                            <i class="bi bi-dash-square"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="form-group pt-3 text-center">
+                    <input type="submit" value="Create" class="btn btn-primary" />
+                    <a asp-action="Index" class="btn btn-outline-primary m-lg-1 m-md-1 m-sm-1">Back to List</a>
+                </div>
             </div>
         </form>
     </div>
+    <div class="col-md-3"></div>
 </div>
 
 @section Scripts {
@@ -121,13 +133,16 @@
             });
 
             $("form").submit(function () {
-                // On form submission, concatenate all subjects into a single string
                 var subjects = $(".subject-input").map(function () {
-                    return $(this).val();
+                    return $(this).val().trim();
                 }).get().join(",");
 
-                // Set the concatenated subjects to the hidden input field
+                var fullname = $(".create-name").map(function () {
+                    return $(this).val().trim();
+                }).get().join(" ");
+
                 $("#concatSubjects").val(subjects);
+                $("#create-fullName").val(fullname);
             });
         });
     </script>

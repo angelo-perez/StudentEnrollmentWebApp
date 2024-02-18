@@ -11,23 +11,22 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary border-bottom box-shadow mb-3" data-bs-theme="dark">
-            <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">StudentEnrollmentWebApp</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="d-flex w-100 justify-content-center">
-                    <form class="d-flex">
-                        <input class="form-control me-sm-2" type="search" name="SearchPhrase" placeholder="Search Student Name">
+        <nav class="navbar navbar-nav m-lg-auto navbar-expand-sm navbar-toggleable-sm navbar-dark bg-primary border-bottom box-shadow mb-3" data-bs-theme="light">
+            <div class="container-fluid row">
+                <div class="col-4">
+                    <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">StudentEnrollmentWebApp</a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                </div>
+                <div class="col-4 text-center">
+                    <form class="d-flex mx-auto">
+                        <input class="form-control me-sm-2 text-primary" type="search" name="SearchPhrase" placeholder="Search Student Name (Enter)" style="text-align: center">
                         <input type="submit" asp-controller="Students" asp-action="ShowSearchResult" hidden />
-                        <button class="btn btn-dark my-2 my-sm-0" type="submit" asp-controller="Students" asp-action="ShowSearchResult">
-                            <i class="bi bi-search"></i>
-                        </button>
                     </form>
                 </div>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between col-4">
                     <ul class="navbar-nav flex-grow-1 justify-content-end">
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
@@ -40,17 +39,19 @@
             </div>
         </nav>
     </header>
+
+
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer bg-primary text-secondary">
+    <footer class="border-top footer bg-primary text-light">
         <div class="container text-center">
             Developed by Angelo Perez
             <a href="https://www.linkedin.com/in/angelo-perez-9b608514a/" class="m-1">
-                <i class="bi bi-linkedin" style="color: black"></i>
+                <i class="bi bi-linkedin" style="color: white"></i>
             </a>
         </div>
     </footer>
