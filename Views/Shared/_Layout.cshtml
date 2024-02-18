@@ -18,6 +18,15 @@
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+                <div class="d-flex w-100 justify-content-center">
+                    <form class="d-flex">
+                        <input class="form-control me-sm-2" type="search" name="SearchPhrase" placeholder="Search Student Name">
+                        <input type="submit" asp-controller="Students" asp-action="ShowSearchResult" hidden />
+                        <button class="btn btn-dark my-2 my-sm-0" type="submit" asp-controller="Students" asp-action="ShowSearchResult">
+                            <i class="bi bi-search"></i>
+                        </button>
+                    </form>
+                </div>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1 justify-content-end">
                         <li class="nav-item">
@@ -25,9 +34,6 @@
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Students" asp-action="Index">Students</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
                         </li>
                     </ul>
                 </div>
@@ -43,6 +49,9 @@
     <footer class="border-top footer bg-primary text-secondary">
         <div class="container text-center">
             Developed by Angelo Perez
+            <a href="https://www.linkedin.com/in/angelo-perez-9b608514a/" class="m-1">
+                <i class="bi bi-linkedin" style="color: black"></i>
+            </a>
         </div>
     </footer>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>

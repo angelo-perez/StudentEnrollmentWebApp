@@ -153,5 +153,18 @@ namespace StudentEnrollmentWebApp.Controllers
         {
             return _context.Students.Any(e => e.StudentId == id);
         }
+
+        //POST: Students/ShowSearchResult
+        public async Task<IActionResult> ShowSearchResult(string SearchPhrase)
+        {
+            if(SearchPhrase != null && SearchPhrase.Length > 0 && SearchPhrase != "")
+            {
+                var searchResults = await _context.Students.Where(s => s.FullName.Contains(SearchPhrase)).ToListAsync();
+                return View("Index", searchResults);
+            }
+            else {
+                return View("Index", await _context.Students.ToListAsync()); 
+            }
+        }
     }
 }
