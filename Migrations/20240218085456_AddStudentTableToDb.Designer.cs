@@ -12,7 +12,7 @@ using StudentEnrollmentWebApp.Data;
 namespace StudentEnrollmentWebApp.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240217091550_AddStudentTableToDb")]
+    [Migration("20240218085456_AddStudentTableToDb")]
     partial class AddStudentTableToDb
     {
         /// <inheritdoc />
@@ -27,11 +27,11 @@ namespace StudentEnrollmentWebApp.Migrations
 
             modelBuilder.Entity("StudentEnrollmentWebApp.Models.Student", b =>
                 {
-                    b.Property<int>("StudentId")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("StudentId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Address")
                         .IsRequired()
@@ -79,7 +79,7 @@ namespace StudentEnrollmentWebApp.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("StudentId");
+                    b.HasKey("Id");
 
                     b.ToTable("Students");
                 });

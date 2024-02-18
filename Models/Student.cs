@@ -4,8 +4,7 @@ namespace StudentEnrollmentWebApp.Models
 {
     public class Student
     {
-        [Key]
-        public int StudentId { get; set; }
+        public int Id { get; set; }
         [Required]
         public string FullName { get; set; }
         [RegularExpression(@"^[^\.\s][\w\-]+(\.[\w\-]+)*@([\w-]+\.)+[\w-]{2,}$", ErrorMessage = "Not a valid email address")]
