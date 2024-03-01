@@ -11,8 +11,8 @@
 - Bootstrap
 - jQuery
 
-## Instructions
-Create a simple CRUD system for a Student Enrollment application. The application should allow users to perform the following actions:
+## Description
+A CRUD system for a Student Enrollment application. The application allows users to perform the following actions:
 - Create: Add a new student's basic information, including their course, and subjects
 - Read: Display a list of all enrolled students with their information.
 - Update: Modify the information of an existing student.
