@@ -1,11 +1,12 @@
-# A Simple CRUD System for a Student Enrollment Web App
+# Basic Student Enrollment: A CRUD Web App
 <p>by <a href="https://www.linkedin.com/in/angelo-perez-9b608514a/">Angelo Perez</a></p>
 
 ## Technologies Used
-- ASP.NET Core MVC
-- .NET 8
 - C#
-- Microsoft SQL Server
+- .NET 8
+- ASP.NET Core MVC
+- Entity Framework Core
+- MSSQL
 - HTML
 - CSS
 - Bootstrap
